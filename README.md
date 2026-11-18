@@ -2,6 +2,10 @@
 
 Projeto acadêmico que compara uma modelagem relacional de pedidos e vendas com documentos que incorporam os itens do pedido. O objetivo é **medir**, não pressupor, a vantagem do NoSQL em um cenário realista.
 
+## Para assistentes de IA e colaboradores
+
+Leia o [AGENTS.md](AGENTS.md) antes de modificar o projeto: ele apresenta a arquitetura, os comandos de execução e testes, a geração da massa e as regras para preservar resultados e segurança.
+
 ## Estado e limites
 
 Carga e experimentos reais concluídos em 17/11/2026, com 1.000.000 de pedidos e 5.492.836 itens nos dois bancos. Integridade validada e medições brutas incluídas em `results/`. PostgreSQL venceu as três consultas iniciais. Um experimento exploratório adicional com lotes de 100 pedidos completos encontrou MongoDB ~1,72× mais rápido. Isso é uma vantagem específica de modelagem/implementação, não uma superioridade geral de NoSQL. Veja [resultados completos](docs/RESULTADOS_REAIS.md).
