@@ -1,0 +1,49 @@
+{
+  "manifest": {
+    "seed": 42,
+    "orders": 1000000,
+    "items": 5492836,
+    "total_cents": 108833431885,
+    "sha256": "d137569dcd47d8164c972f5d25ea2ace0c09b0179111cd9fd729ad60110437f8",
+    "bytes": 630043078,
+    "generation_seconds": 39.581696833000024,
+    "logical_record": "um pedido completo",
+    "synthetic": true
+  },
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "loads": {
+    "postgres_seconds": 440.84725529200114,
+    "mongo_seconds": 53.943402790999244
+  },
+  "postgres_counts": {
+    "orders": 1000000,
+    "total_cents": 108833431885,
+    "items": 5492836
+  },
+  "postgres_bytes": 795072179,
+  "postgres_version": "PostgreSQL 17.11 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+  "mongo_counts": {
+    "orders": 1000000,
+    "items": 5492836,
+    "total_cents": 108833431885
+  },
+  "mongo_stats": {
+    "db": "bd_lab",
+    "collections": 3,
+    "views": 0,
+    "objects": 1011000,
+    "avgObjSize": 632.868334322453,
+    "dataSize": 639829886.0,
+    "storageSize": 157171712.0,
+    "indexes": 6,
+    "indexSize": 56373248.0,
+    "totalSize": 213544960.0,
+    "scaleFactor": 1,
+    "fsUsedSize": 5510217728.0,
+    "fsTotalSize": 31524294656.0,
+    "ok": 1.0
+  },
+  "mongo_version": "8.3.17",
+  "validated": true
+}

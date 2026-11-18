@@ -1,0 +1,64 @@
+{
+  "summary": {
+    "order": {
+      "postgres": {
+        "median_ms": 0.9976875000000001,
+        "min_ms": 0.810666,
+        "max_ms": 1.660458,
+        "iqr_ms": 0.17368699999999992,
+        "samples": 10
+      },
+      "mongo": {
+        "median_ms": 1.0971250000000001,
+        "min_ms": 0.880875,
+        "max_ms": 1.260542,
+        "iqr_ms": 0.2656252499999999,
+        "samples": 10
+      },
+      "speedup_sql_over_mongo": 0.9093653868064259
+    },
+    "daily": {
+      "postgres": {
+        "median_ms": 1382.7467085,
+        "min_ms": 1278.4545,
+        "max_ms": 4438.58225,
+        "iqr_ms": 102.20823999999993,
+        "samples": 10
+      },
+      "mongo": {
+        "median_ms": 2737.6028130000004,
+        "min_ms": 2584.807833,
+        "max_ms": 2852.407125,
+        "iqr_ms": 86.55665599999975,
+        "samples": 10
+      },
+      "speedup_sql_over_mongo": 0.5050939829305325
+    },
+    "top": {
+      "postgres": {
+        "median_ms": 3595.2665205000003,
+        "min_ms": 2419.640041,
+        "max_ms": 12651.339083,
+        "iqr_ms": 3998.056896249999,
+        "samples": 10
+      },
+      "mongo": {
+        "median_ms": 8953.051728999999,
+        "min_ms": 8505.954291,
+        "max_ms": 10429.289041,
+        "iqr_ms": 615.57454125,
+        "samples": 10
+      },
+      "speedup_sql_over_mongo": 0.4015688314247649
+    }
+  },
+  "filters": {
+    "start": "2025-01-01",
+    "end": "2026-01-01",
+    "order_id": 1
+  },
+  "warmups": 2,
+  "cache": "aquecido; sem limpeza de caches do SO/bancos",
+  "method": "perf_counter_ns; execu\u00e7\u00e3o, materializa\u00e7\u00e3o, normaliza\u00e7\u00e3o e JSON; conex\u00f5es persistentes, ordem alternada",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+}

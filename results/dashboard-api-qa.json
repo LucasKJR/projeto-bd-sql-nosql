@@ -1,0 +1,222 @@
+{
+  "equivalent": true,
+  "invalid_source_status": 400,
+  "requests": [
+    {
+      "source": "postgres",
+      "query": "order",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 1,
+      "elapsed_ms": 9.020458
+    },
+    {
+      "source": "mongo",
+      "query": "order",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 1,
+      "elapsed_ms": 1.379333
+    },
+    {
+      "source": "postgres",
+      "query": "daily",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 31,
+      "elapsed_ms": 697.797917
+    },
+    {
+      "source": "mongo",
+      "query": "daily",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 31,
+      "elapsed_ms": 319.489416
+    },
+    {
+      "source": "postgres",
+      "query": "top",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 10,
+      "elapsed_ms": 803.297542
+    },
+    {
+      "source": "mongo",
+      "query": "top",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 10,
+      "elapsed_ms": 839.035792
+    },
+    {
+      "source": "postgres",
+      "query": "batch",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 100,
+      "elapsed_ms": 17.503125
+    },
+    {
+      "source": "mongo",
+      "query": "batch",
+      "start": "2025-01-01",
+      "end": "2025-02-01",
+      "order_id": 1,
+      "count": 100,
+      "elapsed_ms": 6.669875
+    },
+    {
+      "source": "postgres",
+      "query": "order",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 1,
+      "elapsed_ms": 7.162166
+    },
+    {
+      "source": "mongo",
+      "query": "order",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 1,
+      "elapsed_ms": 1.382375
+    },
+    {
+      "source": "postgres",
+      "query": "daily",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 2,
+      "elapsed_ms": 46.353
+    },
+    {
+      "source": "mongo",
+      "query": "daily",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 2,
+      "elapsed_ms": 24.168
+    },
+    {
+      "source": "postgres",
+      "query": "top",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 10,
+      "elapsed_ms": 510.091875
+    },
+    {
+      "source": "mongo",
+      "query": "top",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 10,
+      "elapsed_ms": 53.010042
+    },
+    {
+      "source": "postgres",
+      "query": "batch",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 100,
+      "elapsed_ms": 14.101625
+    },
+    {
+      "source": "mongo",
+      "query": "batch",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "order_id": 12345,
+      "count": 100,
+      "elapsed_ms": 5.617834
+    },
+    {
+      "source": "postgres",
+      "query": "order",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 6.727792
+    },
+    {
+      "source": "mongo",
+      "query": "order",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 1.225958
+    },
+    {
+      "source": "postgres",
+      "query": "daily",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 7.382917
+    },
+    {
+      "source": "mongo",
+      "query": "daily",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 1.832041
+    },
+    {
+      "source": "postgres",
+      "query": "top",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 5.979667
+    },
+    {
+      "source": "mongo",
+      "query": "top",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 2.037417
+    },
+    {
+      "source": "postgres",
+      "query": "batch",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 6.221875
+    },
+    {
+      "source": "mongo",
+      "query": "batch",
+      "start": "2027-01-01",
+      "end": "2027-02-01",
+      "order_id": 1000001,
+      "count": 0,
+      "elapsed_ms": 1.404166
+    }
+  ]
+}

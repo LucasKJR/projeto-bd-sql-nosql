@@ -1,0 +1,4 @@
+const test=require('node:test');const assert=require('node:assert/strict');const d=require('./logic.js');
+test('date interval is half-open and invalid intervals rejected',()=>{assert.equal(d.filters('2025-01-01','2026-01-01','8').order_id,8);assert.throws(()=>d.filters('2026-01-01','2025-01-01','8'));assert.throws(()=>d.filters('2025-01-01','2026-01-01','0'));});
+test('summarizes real daily values in integer cents',()=>{assert.deepEqual(d.summary([{orders:2,total_cents:1001},{orders:1,total_cents:200}]),{orders:3,total_cents:1201});assert.deepEqual(d.summary([]),{orders:0,total_cents:0});});
+test('query parameters retain filters and source',()=>{const u=d.queryURL('mongo','top',d.filters('2025-01-01','2026-01-01','7'));assert.match(u,/source=mongo/);assert.match(u,/query=top/);assert.match(u,/order_id=7/);});

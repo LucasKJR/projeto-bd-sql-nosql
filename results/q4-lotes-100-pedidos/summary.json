@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "postgres": {
+      "median_ms": 10.118749999999999,
+      "min_ms": 8.382042,
+      "max_ms": 16.743334,
+      "iqr_ms": 1.4350939999999994,
+      "samples": 300
+    },
+    "mongo": {
+      "median_ms": 5.880853999999999,
+      "min_ms": 4.6765,
+      "max_ms": 9.905209,
+      "iqr_ms": 0.8865829999999999,
+      "samples": 300
+    }
+  },
+  "speedup_sql_over_mongo": 1.7206259499045546,
+  "seed": 20261117,
+  "ids": [
+    900911,
+    152722,
+    25588,
+    245650,
+    212127,
+    225449,
+    360124,
+    315347,
+    227016,
+    361444,
+    487626,
+    63741,
+    11343,
+    934775,
+    781393,
+    370785,
+    307553,
+    298287,
+    504991,
+    741110,
+    124107,
+    966484,
+    534094,
+    770003,
+    418416,
+    493839,
+    180837,
+    134803,
+    316399,
+    688754
+  ],
+  "method": "30 in\u00edcios de lote aleat\u00f3rios sem reposi\u00e7\u00e3o; 100 pedidos por lote; 1 aquecimento por ID/banco; 10 repeti\u00e7\u00f5es medidas por ID/banco; ordem alternada; mesmas linhas; conex\u00f5es persistentes; Mongo find por faixa de _id; SQL por faixa de PK com join e jsonb_agg; ordem por ID nos dois lados",
+  "equivalent": true
+}

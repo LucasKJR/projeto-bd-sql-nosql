@@ -1,0 +1,13 @@
+// Interface-only test: API fixture explicitly mocked, never performance evidence.
+const {chromium}=require('playwright');const fs=require('node:fs');const path=require('node:path');
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});const page=await browser.newPage({viewport:{width:1280,height:1000}});let requests=[];let fail=false;
+await page.route('http://bd.test/**',async route=>{const url=new URL(route.request().url());if(url.pathname==='/api/query'){requests.push(url.searchParams);if(fail)return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({detail:'Banco indisponível (fixture de teste)'})});const q=url.searchParams.get('query');return route.fulfill({contentType:'application/json',body:JSON.stringify({rows:q==='daily'?[{day:'2025-01-01',orders:2,total_cents:10000}]:q==='top'?[{product_id:7,quantity:3,total_cents:10000}]:[{id:1,items:[]}],elapsed_ms:1.25,source:url.searchParams.get('source'),query:q})});}const name=url.pathname==='/'?'index.html':path.basename(url.pathname);return route.fulfill({body:fs.readFileSync(path.join(__dirname,name)),contentType:name.endsWith('.css')?'text/css':name.endsWith('.js')?'text/javascript':'text/html'});});
+await page.goto('http://bd.test/');await page.locator('#refresh').click();await page.waitForFunction(()=>document.querySelector('#status').textContent.startsWith('Atualizado'));
+if(requests.length!==6)throw Error('Expected six queries');if(await page.locator('#count').innerText()!=='2')throw Error('Bad KPI');
+await page.selectOption('#source','mongo');await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Indicadores: MongoDB')&&document.querySelector('#status').textContent.startsWith('Atualizado'));
+if(requests.length!==12)throw Error('Source did not refresh');
+await page.locator('#start').fill('2025-02-01');await page.locator('#end').focus();await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Período: 2025-02-01'));
+fail=true;await page.locator('#refresh').click();await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('6 consulta(s) falharam'));
+if(await page.locator('#count').innerText()!=='—')throw Error('Stale KPI after error');
+await page.setViewportSize({width:390,height:844});if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Mobile overflow');
+await browser.close();console.log('PASS interface fixture: load, source change, date filter, API errors, stale clearing, mobile width. NOT real database QA.');})().catch(e=>{console.error(e);process.exit(1)});

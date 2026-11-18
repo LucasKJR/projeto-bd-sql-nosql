@@ -1,0 +1,1 @@
+Execução real 17/11/2026: 12 testes Python e 3 Node passaram. Carga de 1 milhão validada. Baseline, Q1 adicional, Q4 exploratória e API reais concluídas. Ver RESULTADOS_REAIS.md e results/. Smoke visual desktop aprovado no Chrome nativo: layout e resultados das oito consultas renderizados. Mobile e filtros pela UI não testados.

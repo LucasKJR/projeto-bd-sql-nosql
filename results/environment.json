@@ -1,0 +1,14 @@
+{
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "cpu_count": 10,
+  "runtime": "Colima isolated SSD; 2 vCPU, 3GiB RAM; both DBs share VM",
+  "storage": "APFS external SSD, Estacao trabalho",
+  "dataset": "data/manifest.json",
+  "host_ram_bytes": 17179869184,
+  "host_logical_cpus": 10,
+  "vm_vcpus": 2,
+  "vm_ram_gib": 3,
+  "vm_data_disk_gib": 30
+}

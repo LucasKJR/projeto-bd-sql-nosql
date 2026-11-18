@@ -1,0 +1,8 @@
+{
+  "orders": 1000000,
+  "items": 5492836,
+  "total_cents": 108833431885,
+  "sha256": "d137569dcd47d8164c972f5d25ea2ace0c09b0179111cd9fd729ad60110437f8",
+  "all_rows_validated": true,
+  "loaded_in_databases": false
+}
