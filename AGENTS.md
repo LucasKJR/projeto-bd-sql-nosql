@@ -13,6 +13,7 @@ CLI: python -m lab
   ├─ generate → JSONL + manifesto SHA-256
   ├─ load → PostgreSQL (tabelas) + MongoDB (documentos)
   ├─ benchmark → consultas equivalentes → CSV bruto + JSON de resumo
+  ├─ crud-demo → pedido sintético em namespaces isolados
   └─ serve → dashboard estático → GET /api/query → lab.db.run
                                                ├─ PostgreSQL
                                                └─ MongoDB
@@ -20,12 +21,12 @@ CLI: python -m lab
 
 | Local | Responsabilidade |
 | --- | --- |
-| `lab/__main__.py` | CLI e opções de geração, carga, benchmark e servidor. |
+| `lab/__main__.py` | CLI e opções de geração, carga, benchmark, CRUD de demonstração e servidor. |
 | `lab/core.py` | Geração sintética determinística, validação de filtros e estatísticas. |
 | `lab/db.py` | Schema SQL, consultas/pipelines, conexões, normalização e cronômetro. |
 | `lab/workflow.py` | JSONL/manifesto, carga com validação e benchmark Q1–Q3. |
 | `lab/server.py` | `ThreadingHTTPServer` local, arquivos estáticos e API real. |
-| `static/` | Dashboard HTML/CSS/JavaScript sem etapa de build; testes Node. |
+| `static/` | Dashboard, Explorar, Comparar e Benchmark histórico HTML/CSS/JS sem etapa de build; testes Node. |
 | `tests/` | Testes Python de lógica, consultas, regressões e servidor. |
 | `experiment_q1.py`, `experiment_batch.py` | Experimentos adicionais Q1 direta e Q4 em lotes. |
 | `compose.yaml` | PostgreSQL e MongoDB, volumes persistentes e healthchecks. |
@@ -61,7 +62,7 @@ node --test static/*.test.cjs
 python -m lab --help
 ```
 
-Esses testes não exigem bancos ativos e não comprovam integração. A entrega documenta 12 testes Python, 3 Node e 24 requisições reais à API; relate separadamente o que passou na sua execução. Não declare QA visual/mobile sem realizá-lo.
+Esses testes não exigem bancos ativos e não comprovam integração. Consulte os registros de QA em `results/` e relate separadamente o que passou na sua execução. Não declare QA visual/mobile sem realizá-lo.
 
 Para uma verificação pequena sem alterar os bancos:
 
@@ -81,7 +82,7 @@ python -m lab serve --port 8000
 
 Escolha outro nome se o diretório já contiver evidências. O JSONL completo não está no Git: são aproximadamente 630 MB, além do espaço dos bancos. O manifesto histórico registra 1.000.000 de pedidos e 5.492.836 itens. Compare hash, contagens e soma em centavos ao reproduzir; tempos de geração não são determinísticos.
 
-`PG_DSN` e `MONGO_URI` alteram os destinos das conexões; confira-os antes de carregar. Portas padrão: PostgreSQL 55432, MongoDB 57017, dashboard 8000, sempre em localhost. O nome Mongo `bd_lab` é fixo no código; mudar só a URI não muda essa seleção. O Compose é destinado a um ambiente local isolado. Para a instalação histórica no SSD, leia `docs/OPERACAO_SSD.txt`; seus caminhos dependem daquela máquina, não de qualquer clone.
+`PG_DSN` e `MONGO_URI` alteram os destinos das conexões; confira-os antes de carregar. Portas padrão: PostgreSQL 55432, MongoDB 57017, dashboard 8000, sempre em localhost. O nome Mongo `bd_lab` é fixo no código; mudar só a URI não muda essa seleção. O Compose é destinado a um ambiente local isolado. Veja `docs/OPERACAO_SSD.txt` para operação local; a configuração do SSD original não está no repositório.
 
 ## Integridade, reprodução e limites
 

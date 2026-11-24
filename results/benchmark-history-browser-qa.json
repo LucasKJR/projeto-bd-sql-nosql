@@ -1,0 +1,31 @@
+{
+  "port": "8765",
+  "historical_rows": [
+    [
+      "1,06 ms",
+      "1,12 ms",
+      "PostgreSQL"
+    ],
+    [
+      "1,38 s",
+      "2,74 s",
+      "PostgreSQL"
+    ],
+    [
+      "3,60 s",
+      "8,95 s",
+      "PostgreSQL"
+    ],
+    [
+      "10,12 ms",
+      "5,88 ms",
+      "MongoDB"
+    ]
+  ],
+  "highlight": "42%",
+  "historical_no_database_queries": true,
+  "three_nav_links": true,
+  "no_mobile_overflow": true,
+  "live_q1_q4": true,
+  "live_q4_equal_rows": 100
+}

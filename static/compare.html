@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comparar bancos · BD Lab</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/explorer.css?v=20261124b"><link rel="stylesheet" href="/static/compare.css?v=20261124"><script defer src="/static/compare-logic.js?v=20261124"></script><script defer src="/static/compare.js?v=20261124"></script></head>
+<body>
+<header><div class="brand">BD<span> / LAB</span></div><nav aria-label="Áreas do laboratório"><a href="/explorer" class="nav-link">Explorar dados</a><a href="/compare" aria-current="page" class="nav-link">Comparar</a><a href="/benchmark" class="nav-link">Benchmark</a><a href="/" class="nav-link">Dashboard ao vivo ↗</a></nav></header>
+<main class="workbench compare-page">
+<div class="workbench-top"><h1>Comparar bancos <span>PostgreSQL × MongoDB</span></h1></div>
+<form id="compare-form" class="panel query-panel">
+<div class="query-heading"><label>O que consultar <select id="compare-entity"><option value="orders">Pedidos</option><option value="customers">Clientes</option><option value="products">Produtos</option></select></label><label class="page-limit">Por página<select id="compare-limit"><option>10</option><option>20</option><option>50</option></select></label><button type="submit" id="compare-run">Comparar bancos</button></div>
+<div class="query-grid"><section class="filter-area"><h3>Filtros para os dois bancos</h3><div id="conditions"></div><div class="tools-row"><button type="button" class="subtle" id="compare-add">+ Adicionar</button><button type="button" class="subtle" id="compare-clear">Limpar filtros</button></div></section>
+<section class="fields-area"><div class="fields-heading"><h3>Campos no resultado</h3><button type="button" class="text-button" id="compare-all">Marcar todos</button></div><div id="select-fields"></div></section></div>
+</form>
+<section class="panel compare-summary" aria-label="Resumo da comparação">
+<div class="panel-heading"><h2>Resultado da página</h2><span class="timing">Execução atual</span></div><p id="compare-status" role="status" aria-live="polite"></p>
+<div class="compare-metrics"><div><span>PostgreSQL</span><strong id="pg-time">—</strong></div><div><span>MongoDB</span><strong id="mongo-time">—</strong></div><div><span>Mais rápido nesta execução</span><strong id="compare-winner">—</strong><small id="compare-delta"></small></div></div>
+<p id="compare-agreement" class="agreement"></p><ul id="compare-differences" hidden></ul>
+<nav class="pagination" aria-label="Páginas comparadas"><button id="compare-prev" type="button" class="subtle" disabled>← Anterior</button><span id="compare-page">Página 1</span><button id="compare-next" type="button" class="subtle" disabled>Próxima →</button></nav>
+</section>
+<div class="compare-results"><section class="panel"><h2>PostgreSQL <span>Tabela</span></h2><div id="pg-rows" class="compare-rows"></div></section><section class="panel"><h2>MongoDB <span>Documentos</span></h2><div id="mongo-rows" class="compare-rows"></div></section></div>
+<details class="panel compare-note"><summary>O que é comparado?</summary><p>O mesmo conjunto de filtros e campos comuns, pela identidade de negócio e pelos valores desta página. Itens incorporados não entram nesta tela; veja-os em <a href="/explorer">Explorar dados</a>. Os tempos incluem conexão e leitura e variam a cada execução. Para resultados de várias repetições, use o <a href="/">Benchmark</a>.</p></details>
+</main></body></html>

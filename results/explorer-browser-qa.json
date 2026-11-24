@@ -1,0 +1,11 @@
+{
+  "port": "8765",
+  "postgres_product_filter_rows": 20,
+  "postgres_composite_next_previous": true,
+  "mongo_embedded_product_filter_rows": 20,
+  "mongo_expand": true,
+  "unsafe_entity_rejected": true,
+  "no_mobile_viewport_overflow": true,
+  "benchmark_ui_rows": 4,
+  "benchmark_q4_equal_rows": 100
+}

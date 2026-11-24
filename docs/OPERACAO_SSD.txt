@@ -1,21 +1,16 @@
-LABORATÓRIO BD — SSD
-Código, massa, ambiente Python, caches, temporários configuráveis e discos da VM Colima isolada ficam nesta pasta. O Lima ainda cria pequenos sockets temporários de controle em /tmp do macOS; dados, imagens e volumes ficam no SSD.
-O Docker/Colima já existente não foi movido nem substituído.
+LABORATÓRIO BD — AMBIENTE LOCAL
 
-Antes de usar comandos no Terminal:
-source '/Volumes/Estacao trabalho/BDLab/ssd-env.sh'
-cd "$BDLAB/project/Projeto_BD_SQL_NoSQL"
+Confira o contexto Docker antes de iniciar, parar ou recarregar os serviços.
+A configuração do SSD usada no laboratório original é local e não acompanha o repositório.
+Em outro computador, siga a instalação e geração do README.md.
 
-Iniciar VM isolada existente:
-colima start --activate=false
-Iniciar bancos:
-docker-compose -p bdlab-ssd up -d --wait
-Dashboard:
-.venv/bin/python -m lab serve --port 8765
+Para iniciar os contêineres existentes e abrir o dashboard:
+docker compose up -d --wait
+python -m lab serve --port 8765
 
-ANTES DE DESCONECTAR O SSD:
-Pare o servidor Python com Ctrl+C. Na mesma sessão com ssd-env.sh carregado:
-docker-compose -p bdlab-ssd stop
-colima stop
-Não use down -v nem delete: essas opções removem os bancos.
-Não execute comandos de interrupção sem carregar ssd-env.sh, para não atingir o ambiente Colima antigo.
+Abra http://127.0.0.1:8765/ no próprio computador. Os serviços usam portas de
+localhost; não exponha o laboratório à rede pública.
+
+Se os bancos já contiverem a massa, não recarregue. Para encerrar, pare o
+servidor Python com Ctrl+C e, no mesmo contexto Docker, execute
+docker compose stop. Não use down -v nem exclua os volumes ou a VM.

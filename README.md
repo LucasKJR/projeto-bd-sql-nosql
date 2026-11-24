@@ -2,15 +2,11 @@
 
 Projeto acadêmico que compara uma modelagem relacional de pedidos e vendas com documentos que incorporam os itens do pedido. O objetivo é **medir**, não pressupor, a vantagem do NoSQL em um cenário realista.
 
-## Para assistentes de IA e colaboradores
-
-Leia o [AGENTS.md](AGENTS.md) antes de modificar o projeto: ele apresenta a arquitetura, os comandos de execução e testes, a geração da massa e as regras para preservar resultados e segurança.
-
 ## Estado e limites
 
 Carga e experimentos reais concluídos em 17/11/2026, com 1.000.000 de pedidos e 5.492.836 itens nos dois bancos. Integridade validada e medições brutas incluídas em `results/`. PostgreSQL venceu as três consultas iniciais. Um experimento exploratório adicional com lotes de 100 pedidos completos encontrou MongoDB ~1,72× mais rápido. Isso é uma vantagem específica de modelagem/implementação, não uma superioridade geral de NoSQL. Veja [resultados completos](docs/RESULTADOS_REAIS.md).
 
-Este repositório não inclui o JSONL de 630 MB, a VM nem as dependências instaladas; inclui gerador, manifesto e evidências reais.
+O repositório não contém o JSONL de 630 MB, volumes, VM ou dependências instaladas. A massa é sintética e reproduzível; o gerador, o manifesto e as evidências de medição acompanham o código.
 
 ## Executar localmente
 
@@ -26,13 +22,21 @@ source .venv/bin/activate
 # .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 docker compose up -d --wait
-python -m lab generate --count 1000000
-python -m lab load
-python -m lab benchmark --repetitions 10
-python -m lab serve
+python -m lab generate --count 1000000 --seed 42 --data data-local
+python -m lab load --data data-local --out results/carga-local
+python -m lab serve --port 8765
 ```
 
-Abra **http://127.0.0.1:8000** no navegador (ou a porta informada com `serve --port`). O dashboard consulta os bancos por uma API Python; não usa números estáticos como se fossem resultados reais. A aplicação e as portas dos bancos são destinadas ao uso local, não à publicação na internet. As credenciais de desenvolvimento não são apropriadas para produção.
+### Telas locais
+
+| Tela | Endereço | O que mostra |
+| --- | --- | --- |
+| Dashboard ao vivo | [`/`](http://127.0.0.1:8765/) | Indicadores e consultas Q1–Q4, com tempos da execução atual. |
+| Explorar dados | [`/explorer`](http://127.0.0.1:8765/explorer) | Tabelas PostgreSQL e documentos MongoDB, com filtros e seleção de campos. |
+| Comparar | [`/compare`](http://127.0.0.1:8765/compare) | Mesmos filtros e campos nos dois bancos; verifica IDs e valores da página e mostra tempos lado a lado. |
+| Benchmark registrado | [`/benchmark`](http://127.0.0.1:8765/benchmark) | Medianas arquivadas de Q1–Q4, sem conectar aos bancos. |
+
+Para abrir só o benchmark registrado, basta iniciar `python -m lab serve --port 8765`, sem Docker ou dependências de banco. As demais telas consultam os dois bancos locais. Não exponha o servidor ou as portas de banco à internet: as credenciais de desenvolvimento não são apropriadas para produção.
 
 Para verificar a geração em uma amostra separada, use `python -m lab generate --count 100 --data data-amostra`. Não carregue essa amostra no banco final antes da massa completa, pois a carga não sobrescreve bancos existentes.
 
@@ -58,8 +62,14 @@ Na comparação, ambos devem responder à **mesma pergunta**, sobre os mesmos pe
 
 - [Metodologia, dados e modelos](docs/METODOLOGIA.md)
 - [Checklist de entrega e evidências](docs/ENTREGAS.md)
+- [Slides da apresentação](apresentacao/Projeto_BD_Slides.pdf)
+- [Explorar dados](docs/EXPLORADOR.md), [Comparar](docs/COMPARAR.md) e [benchmark registrado](docs/BENCHMARK_HISTORICO.md)
 
 As datas de 19/11 e 24/11/2026 foram fornecidas pelo aluno. O enunciado atualizado define os requisitos; os materiais anteriores fornecem a fundamentação sobre documentos/MongoDB e o cenário de pedidos. Este código concretiza a proposta, sem converter hipóteses anteriores em resultados.
+
+## CRUD equivalente
+
+Com os dois bancos ativos, rode `python -m lab crud-demo`. O roteiro e a comparação dos comandos estão em [CRUD de demonstração](docs/CRUD_DEMONSTRACAO.md). O CRUD opera somente sobre um pedido criado para a demonstração, em estruturas separadas da massa.
 
 ## Testes sem os bancos
 
@@ -68,7 +78,7 @@ python -m unittest discover -s tests
 node --test static/*.test.cjs
 ```
 
-Node é necessário apenas para os testes JavaScript; não é necessário para servir o dashboard. A integração real via API foi verificada em 24 requisições, com filtros, resultados vazios e equivalência dos bancos. Smoke visual desktop aprovado no Chrome nativo; mobile e filtros pela UI permanecem não verificados.
+Node é necessário apenas para os testes JavaScript; não é necessário para servir o dashboard. Os relatórios em `results/` registram verificações anteriores em Chrome desktop e emulado para celular, CRUD isolado e equivalência das consultas. Testes unitários de um novo checkout não confirmam, sozinhos, a integração com bancos.
 
 Cada benchmark recusa sobrescrever uma rodada anterior. Para repetir, use `python -m lab benchmark --out results/rodada-2`. Rodadas falhadas geram `benchmark-failure.json`; amostras parciais não são resultado concluído.
 
@@ -76,4 +86,4 @@ Cada benchmark recusa sobrescrever uma rodada anterior. Para repetir, use `pytho
 
 `python experiment_q1.py` e `python experiment_batch.py` reproduzem os experimentos adicionais. Recusam diretórios de saída existentes: preserve/renomeie a evidência anterior antes de uma nova rodada. O benchmark padrão executa Q1–Q3; Q4 é separado e também está no dashboard.
 
-As portas padrão do código e do Compose são PostgreSQL **55432** e MongoDB **57017**, somente localhost. `PG_DSN` e `MONGO_URI` permitem alterar os destinos. Para o ambiente já instalado no SSD, veja `docs/OPERACAO_SSD.txt`; não recarregue bancos já preenchidos.
+As portas padrão do código e do Compose são PostgreSQL **55432** e MongoDB **57017**, somente localhost. `PG_DSN` e `MONGO_URI` permitem alterar os destinos. Consulte [operação local](docs/OPERACAO_SSD.txt); não recarregue bancos já preenchidos.

@@ -1,0 +1,60 @@
+{
+  "verified_at": "2026-11-23T21:42:02.783Z",
+  "january": {
+    "status": "Atualizado às 18:42:01 · Indicadores: PostgreSQL · Período: 2025-01-01 até 2025-02-01 (fim excluído).",
+    "context": "Medição de 18:42:01 · período 2025-01-01 até 2025-02-01 (excluído) · Q1: pedido #1 · Q4: lote a partir de #1. Navegar pedidos não altera esta comparação.",
+    "count": "68.198",
+    "batchLinks": 100,
+    "times": [
+      [
+        "Q1 · Pedido",
+        "4.46 ms",
+        "1.17 ms"
+      ],
+      [
+        "Q2 · Vendas/dia",
+        "167.86 ms",
+        "108.16 ms"
+      ],
+      [
+        "Q3 · Top produtos",
+        "1223.35 ms",
+        "251.80 ms"
+      ],
+      [
+        "Q4 · Lote 100",
+        "5.14 ms",
+        "2.21 ms"
+      ]
+    ]
+  },
+  "february": {
+    "status": "Atualizado às 18:42:02 · Indicadores: MongoDB · Período: 2025-02-01 até 2025-03-01 (fim excluído).",
+    "context": "Medição de 18:42:02 · período 2025-02-01 até 2025-03-01 (excluído) · Q1: pedido #12345 · Q4: lote a partir de #12345. Navegar pedidos não altera esta comparação.",
+    "count": "61.431",
+    "batchLinks": 100,
+    "times": [
+      [
+        "Q1 · Pedido",
+        "2.89 ms",
+        "0.61 ms"
+      ],
+      [
+        "Q2 · Vendas/dia",
+        "140.75 ms",
+        "84.64 ms"
+      ],
+      [
+        "Q3 · Top produtos",
+        "203.60 ms",
+        "224.30 ms"
+      ],
+      [
+        "Q4 · Lote 100",
+        "5.21 ms",
+        "1.88 ms"
+      ]
+    ]
+  },
+  "q4_same_rows": 100
+}

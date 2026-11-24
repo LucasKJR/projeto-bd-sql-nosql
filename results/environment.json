@@ -4,7 +4,7 @@
   "machine": "arm64",
   "cpu_count": 10,
   "runtime": "Colima isolated SSD; 2 vCPU, 3GiB RAM; both DBs share VM",
-  "storage": "APFS external SSD, Estacao trabalho",
+  "storage": "APFS external SSD",
   "dataset": "data/manifest.json",
   "host_ram_bytes": 17179869184,
   "host_logical_cpus": 10,

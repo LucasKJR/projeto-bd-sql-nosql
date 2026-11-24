@@ -1,1 +1,7 @@
 Execução real 17/11/2026: 12 testes Python e 3 Node passaram. Carga de 1 milhão validada. Baseline, Q1 adicional, Q4 exploratória e API reais concluídas. Ver RESULTADOS_REAIS.md e results/. Smoke visual desktop aprovado no Chrome nativo: layout e resultados das oito consultas renderizados. Mobile e filtros pela UI não testados.
+
+Revalidação de 23/11/2026:
+- 17 testes Python e 5 testes JavaScript passaram.
+- CRUD real nos dois bancos com UUID sintético e estruturas exclusivas: R$ 104,50 → R$ 136,00; exclusão de 1 pedido por banco e nova leitura vazia. Preservados 1.000.000 de pedidos da massa em cada banco; zero linhas de demonstração após a exclusão. Registro em results/crud-demo.json.
+- Chrome desktop e API reais: dois intervalos e IDs diferentes, fonte PostgreSQL e MongoDB, quatro linhas comparativas sem erro, 100 pedidos no lote e registros de Q4 iguais entre as fontes. Registro em results/dashboard-final-qa.json. Os tempos ali são execuções pontuais, não novas medianas do benchmark.
+- Ensaio técnico não é a apresentação avaliada. Não houve submissão ou publicação.

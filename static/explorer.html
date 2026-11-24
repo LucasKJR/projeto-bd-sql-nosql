@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Explorador · BD Lab</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/explorer.css?v=20261124b"><script defer src="/static/explorer.js?v=20261124b"></script></head>
+<body>
+<header><div class="brand">BD<span> / LAB</span></div><nav aria-label="Áreas do laboratório"><a href="/explorer" aria-current="page" class="nav-link">Explorar dados</a><a href="/compare" class="nav-link">Comparar</a><a href="/benchmark" class="nav-link">Benchmark</a><a href="/" class="nav-link">Dashboard ao vivo ↗</a></nav></header>
+<main class="workbench">
+<div class="workbench-top"><h1>Explorador de dados</h1><div class="engine-tabs" role="group" aria-label="Banco de dados">
+<button type="button" data-engine="postgres" aria-pressed="true">PostgreSQL <small>Tabelas</small></button>
+<button type="button" data-engine="mongo" aria-pressed="false">MongoDB <small>Coleções</small></button>
+</div></div>
+<div class="workbench-layout">
+<aside class="panel schema"><h2 id="schema-title">Tabelas</h2><div id="entity-list" aria-labelledby="schema-title"></div><span class="read-only">Somente leitura</span></aside>
+<section class="workspace" aria-label="Consulta do objeto selecionado">
+<form id="explorer-filter" class="panel query-panel">
+<div class="query-heading"><div><span class="query-type" id="entity-type">Tabela</span><h2 id="entity-title"></h2></div><button type="submit" id="run-query">Executar consulta</button></div>
+<div class="query-grid">
+<section class="filter-area" aria-labelledby="filter-title"><h3 id="filter-title">Filtros</h3><div id="conditions"></div>
+<div class="tools-row"><button type="button" id="add-filter" class="subtle">+ Adicionar</button><button type="button" id="clear-filter" class="subtle">Limpar filtros</button></div><p class="caption" id="filter-note">Sem filtro, a consulta retorna a primeira página.</p></section>
+<section class="fields-area" aria-labelledby="fields-title"><div class="fields-heading"><h3 id="fields-title">Campos no resultado</h3><button type="button" class="text-button" id="select-all">Marcar todos</button></div><div id="select-fields"></div></section>
+</div>
+</form>
+<section class="panel results"><div class="panel-heading"><div><h2 id="result-title">Resultados</h2><p id="explorer-status" role="status" aria-live="polite"></p></div><span id="query-time" class="timing" hidden></span></div>
+<div id="result-view"></div>
+<nav class="pagination" aria-label="Páginas de resultado"><label class="page-limit">Por página<select id="page-limit"><option>10</option><option selected>20</option><option>50</option></select></label><div class="page-buttons"><button id="page-prev" type="button" class="subtle" disabled>←</button><span id="page-number">Página 1</span><button id="page-next" type="button" class="subtle" disabled>→</button></div></nav>
+</section></section></div>
+</main></body></html>

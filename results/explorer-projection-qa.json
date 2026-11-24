@@ -1,0 +1,13 @@
+{
+  "port": "8765",
+  "loads_only_on_execute": true,
+  "no_query_text": true,
+  "postgres_only_selected_fields": true,
+  "postgres_page_cursor_hidden": true,
+  "mongo_only_selected_fields": true,
+  "mongo_embedded_items": true,
+  "no_results": true,
+  "no_mobile_overflow": true,
+  "benchmark_ui_rows": 4,
+  "benchmark_q4_equal_rows": 100
+}

@@ -8,3 +8,11 @@ results/
 !.env.example
 .DS_Store
 *.log
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+data-local/
+data-reproducao/
+data-amostra*/

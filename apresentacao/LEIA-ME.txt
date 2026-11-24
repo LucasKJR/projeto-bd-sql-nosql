@@ -1,0 +1,3 @@
+Apresentação: Projeto_BD_Slides.pdf (9 páginas).
+Para reproduzir, siga o README. O arquivo JSONL de ~630 MB, os volumes e as dependências instaladas não integram o repositório.
+O slide com a busca por ID usa a baseline; a tela Benchmark mostra a variante de busca direta em 100 IDs. Ambos concordam sobre a menor mediana. Consulte docs/RESULTADOS_REAIS.md para distinguir as medições.

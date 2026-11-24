@@ -1,0 +1,3 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),d=require('./logic.js');
+test('presentation has explicit ID lookup, evidence and optional JSON',()=>{const html=fs.readFileSync(__dirname+'/index.html','utf8');for(const id of ['load-evidence','lookup-id','lookup-button','order-readable','data-dictionary'])assert.ok(html.includes('id="'+id+'"'),id);});
+test('item presentation computes subtotal in cents without changing data',()=>{const item={position:0,product_id:3,product_name:'Produto 3',quantity:2,unit_cents:3077};assert.deepEqual(d.itemRows([item]),[[1,3,'Produto 3',2,3077,6154]]);assert.equal(item.unit_cents,3077);});

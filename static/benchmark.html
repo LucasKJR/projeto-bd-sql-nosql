@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Benchmark registrado · BD Lab</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/benchmark.css?v=20261124"><script defer src="/static/benchmark.js?v=20261124"></script></head>
+<body>
+<header><div class="brand">BD<span> / LAB</span></div><nav aria-label="Áreas do laboratório"><a href="/explorer">Explorar</a><a href="/compare">Comparar</a><a href="/benchmark" aria-current="page">Benchmark</a><a href="/">Dashboard ao vivo ↗</a></nav></header>
+<main class="benchmark-page">
+<div class="benchmark-heading"><div><p class="benchmark-kicker">POSTGRESQL × MONGODB</p><h1>Benchmark registrado</h1></div><span id="benchmark-date" class="benchmark-badge">Resultado arquivado</span></div>
+<p class="caption">Medianas de várias medições. Não são os tempos das consultas ao vivo.</p>
+<section class="panel benchmark-hero" aria-labelledby="highlight-title"><div><p class="benchmark-kicker">DESTAQUE · Q4</p><h2 id="highlight-title">Lote de 100 pedidos completos</h2><p id="highlight-detail"></p></div><div><strong id="highlight-pct">—</strong><span>menor tempo mediano no MongoDB</span></div></section>
+<section class="panel archived-results"><h2>Resultados por consulta</h2><p id="benchmark-status" role="status" aria-live="polite">Carregando resultados registrados…</p><div class="table-scroll">
+<table id="benchmark-table" hidden><thead><tr><th scope="col">Consulta</th><th scope="col">PostgreSQL</th><th scope="col">MongoDB</th><th scope="col">Menor mediana</th></tr></thead><tbody></tbody></table>
+</div></section>
+<details class="panel benchmark-method"><summary>Como foi medido</summary><p>Mesma massa sintética de 1 milhão de pedidos nos dois bancos. Cache aquecido, ordem dos bancos alternada e conexões persistentes. Os tempos incluem consulta, materialização e serialização, mas não abertura de conexão.</p><p>Q1 usa a verificação adicional com busca direta. Q2 e Q3 são da rodada inicial do ano de 2025. Q4 é exploratório: os pedidos completos incluem os itens e podem ter qualquer situação. A vantagem se refere a esse cenário e não a todo NoSQL.</p><p><a href="/api/benchmark-history">Ver evidência resumida em JSON</a></p></details>
+</main></body></html>

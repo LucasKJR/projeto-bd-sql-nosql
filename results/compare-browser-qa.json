@@ -1,0 +1,12 @@
+{
+  "port": "8765",
+  "orders_matching_rows": 10,
+  "order_combined_filters": true,
+  "projection_hides_id": true,
+  "comparison_cursor_next_previous": true,
+  "products_prefix_matching_rows": 10,
+  "no_results": true,
+  "no_mobile_overflow": true,
+  "benchmark_ui_rows": 4,
+  "benchmark_q4_equal_rows": 100
+}
